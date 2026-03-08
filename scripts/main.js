@@ -134,10 +134,12 @@ const searchIssues = async () => {
 const manageLoading = (status) =>{
     if(status == true){
         document.getElementById("loading").classList.remove("hidden");
+        document.getElementById("loading").classList.add("flex");
         document.getElementById("issue-container").classList.add("hidden");
     }
     else{
         document.getElementById("loading").classList.add("hidden");
+        document.getElementById("loading").classList.remove("flex");
         document.getElementById("issue-container").classList.remove("hidden");
     }
 }
