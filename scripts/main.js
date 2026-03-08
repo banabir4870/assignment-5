@@ -84,7 +84,7 @@ const displayModal = (card) => {
     const modalDetails = document.getElementById("details-container");
     // open close condition
     const statusText = card.status === "open" ? "Opened" : "Closed";
-    const statusBtn = card.status === "open" ? "btn-success" : "btn-error";
+    const statusBtn = card.status === "open" ? "btn-success" : "btn-primary";
     // priority badge condition
     const priorityBtn = card.priority === "high" ? "btn-error" : card.priority === "medium" ? "btn-warning" : "btn-soft";
     // date formatting
