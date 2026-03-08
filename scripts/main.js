@@ -12,6 +12,7 @@ const issueContainer = document.getElementById("issue-container");
 
 
 const loadIssues = async () => {
+    manageLoading(true);
     const url = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
     const data = await fetch(url)
     const loadedIssues = await data.json();
@@ -54,12 +55,14 @@ const displayIssues = (allIssues) => {
         issueContainer.appendChild(issueCard);
     })
     calculateCount()
+    manageLoading(false);
 }
 
 
 
 // All Open and Closed tab buttons
 const loadCategory = async (category) => {
+    manageLoading(true);
     const url = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
     const data = await fetch(url)
     const loadedIssues = await data.json();
@@ -70,6 +73,7 @@ const loadCategory = async (category) => {
 
 // modal
 const loadModal = async (id) => {
+    manageLoading(true);
     const url = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
     const res = await fetch(url);
     const data = await res.json();
@@ -105,6 +109,7 @@ const displayModal = (card) => {
         </div>
     `;
     document.getElementById('my_modal_5').showModal();
+    manageLoading(false);
 }
 
 // counts
@@ -116,12 +121,25 @@ function calculateCount() {
 
 // search
 const searchIssues = async () => {
+    manageLoading(true);
     const searchText = document.getElementById("input-search").value;
     const url = `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchText}`;
     const res = await fetch(url);
     const data = await res.json();
     const issues = data.data;
     displayIssues(issues);
+}
+
+// loading
+const manageLoading = (status) =>{
+    if(status == true){
+        document.getElementById("loading").classList.remove("hidden");
+        document.getElementById("issue-container").classList.add("hidden");
+    }
+    else{
+        document.getElementById("loading").classList.add("hidden");
+        document.getElementById("issue-container").classList.remove("hidden");
+    }
 }
 
 loadIssues();

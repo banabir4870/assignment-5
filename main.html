@@ -71,39 +71,15 @@
             <!-- cards -->
             <div id="issue-container" class="p-6 grid grid-cols-4 gap-3">
                 <!-- cards will append here -->
-                <div class="p-4 bg-white border-2 border-gray-100 rounded-xl space-y-3">
-                    <div class="flex justify-between items-center">
-                        <img src="assets/Open-Status.png" alt="">
-                        <button class="btn btn-soft btn-error rounded-full">High</button>
-                    </div>
-                    <h2 class="font-semibold text-sm text-[#1F2937]">Fix navigation menu on mobile devices</h2>
-                    <p class="text-[12px] text-neutral/70">The navigation menu doesn't collapse properly on mobile
-                        devices...</p>
-                    <div>
-                        <button class="btn btn-soft btn-error rounded-full"><img src="assets/bug.png"
-                                alt="">Bug</button>
-                        <button class="btn btn-soft btn-warning rounded-full"><img src="assets/help.png" alt="">Help
-                            Wanted</button>
-                    </div>
-                    <hr class="border-1 border-gray-400">
-                    <div class="flex justify-between">
-                        <p class="text-neutral/50 text-sm">#1 by john_doe</p>
-                        <p class="text-neutral/50 text-sm">1/15/2024</p>
-                    </div>
-                    <div class="flex justify-between">
-                        <p class="text-neutral/50 text-sm">Assignee: john_smith</p>
-                        <p class="text-neutral/50 text-sm">Updated: 1/15/2024</p>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
     <!-- modal -->
-     <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+    <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
         <div class="modal-box">
             <div id="details-container" class="space-y-4">
-                <!-- demo -->
+                <!-- modal will show here -->
 
             </div>
             <div class="modal-action">
@@ -114,6 +90,15 @@
             </div>
         </div>
     </dialog>
+
+    <!-- loading -->
+    <section id="loading" class="flex justify-center items-center py-10 gap-4 hidden">
+        <span class="loading loading-bars loading-xs"></span>
+        <span class="loading loading-bars loading-xs"></span>
+        <span class="loading loading-bars loading-xs"></span>
+        <span class="loading loading-bars loading-xs"></span>
+        <span class="loading loading-bars loading-xs"></span>
+    </section>
 
 
     <!-- scripts -->
