@@ -82,6 +82,9 @@ const loadModal = async (id) => {
 }
 const displayModal = (card) => {
     const modalDetails = document.getElementById("details-container");
+    // open close condition
+    const statusText = card.status === "open" ? "Opened" : "Closed";
+    const statusBtn = card.status === "open" ? "btn-success" : "btn-error";
     // priority badge condition
     const priorityBtn = card.priority === "high" ? "btn-error" : card.priority === "medium" ? "btn-warning" : "btn-soft";
     // date formatting
@@ -90,7 +93,7 @@ const displayModal = (card) => {
 
     modalDetails.innerHTML = `
         <h1 class="font-bold text-2xl text-[#1F2937]">${card.title}</h1>
-        <p class="flex gap-1 items-center"><button class="btn btn-success text-white text-sm font-normal rounded-full">Opened</button> • opened by ${card.assignee} • ${updatedAt}</p>
+        <p class="flex gap-1 items-center"><button class="btn ${statusBtn} btn-soft text-sm font-normal rounded-full">${statusText}</button> • opened by ${card.assignee} • ${updatedAt}</p>
         <div>
             ${card.labels[0] ? `<button class="btn btn-soft btn-warning rounded-full">${card.labels[0]}</button>` : ""}
             ${card.labels[1] ? `<button class="btn btn-soft btn-warning rounded-full">${card.labels[1]}</button>` : ""}
@@ -130,13 +133,13 @@ const searchIssues = async () => {
 }
 
 // loading
-const manageLoading = (status) =>{
-    if(status == true){
+const manageLoading = (status) => {
+    if (status == true) {
         document.getElementById("loading").classList.remove("hidden");
         document.getElementById("loading").classList.add("flex");
         document.getElementById("issue-container").classList.add("hidden");
     }
-    else{
+    else {
         document.getElementById("loading").classList.add("hidden");
         document.getElementById("loading").classList.remove("flex");
         document.getElementById("issue-container").classList.remove("hidden");
