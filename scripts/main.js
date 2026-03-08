@@ -29,7 +29,7 @@ const displayIssues = (allIssues) => {
         const statusImg = issues.status === "open" ? "assets/Open-Status.png" : "assets/Closed-Status .png";
         // priority badge condition
         const priorityBtn = issues.priority === "high" ? "btn-error" : issues.priority === "medium" ? "btn-warning" : "btn-soft";
-        // date formeting
+        // date formatting
         const createDate = new Date(issues.createdAt);
         const createdAt = createDate.toLocaleDateString();
         const issueCard = document.createElement("div");
@@ -74,18 +74,17 @@ const loadCategory = async (category) => {
 // modal
 const loadModal = async (id) => {
     manageLoading(true);
-    const url = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
+    const url = `https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`;
     const res = await fetch(url);
     const data = await res.json();
-    const allcards = data.data;
-    const singleCard = allcards.find(card => card.id == id);
-    displayModal(singleCard);
+    const allCards = data.data;
+    displayModal(allCards);
 }
 const displayModal = (card) => {
     const modalDetails = document.getElementById("details-container");
     // priority badge condition
     const priorityBtn = card.priority === "high" ? "btn-error" : card.priority === "medium" ? "btn-warning" : "btn-soft";
-    // date formeting
+    // date formatting
     const updateDate = new Date(card.updatedAt);
     const updatedAt = updateDate.toLocaleDateString();
 
