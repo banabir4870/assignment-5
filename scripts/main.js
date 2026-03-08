@@ -107,12 +107,21 @@ const displayModal = (card) => {
     document.getElementById('my_modal_5').showModal();
 }
 
+// counts
 let totalCount = document.getElementById('total-count');
 
 function calculateCount() {
     totalCount.innerText = issueContainer.children.length;
 };
 
-
+// search
+const searchIssues = async () => {
+    const searchText = document.getElementById("input-search").value;
+    const url = `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchText}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    const issues = data.data;
+    displayIssues(issues);
+}
 
 loadIssues();
